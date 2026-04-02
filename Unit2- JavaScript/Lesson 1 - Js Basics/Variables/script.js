@@ -35,6 +35,34 @@
     // Null: explicitly set to represent no value
     let nullType = null; // This is intentionally set to null
 
+    // ========================================
+    // DIFFERENCE BETWEEN VAR AND LET
+    // ========================================
+    
+    // var: function-scoped - accessible throughout the entire function
+    // let: block-scoped - only accessible within the block {} where declared
+    
+    function scopeExample() {
+        if (true) {
+            var varInBlock = "accessible outside this if block";
+            let letInBlock = "only accessible inside this if block";
+        }
+        console.log(varInBlock); // Works - var is function-scoped
+        // console.log(letInBlock); // ERROR - let is block-scoped
+    }
+    
+    // WHY VAR IS NOT RECOMMENDED:
+    // 1. Hoisting: var declarations are moved to the top of the function
+    //    This can cause confusion and bugs
+    console.log(hoisted); // undefined (not an error!)
+    var hoisted = "I'm hoisted!";
+    
+    // 2. No block scope: var ignores blocks, can accidentally overwrite variables
+    // 3. Use let instead - it's safer and more predictable
+    
+    // Call the example
+    scopeExample();
+
     // Display the result on the page
     document.getElementById('output').innerHTML = `
       <strong>Var Example (myVar):</strong> ${myVar}<br>
