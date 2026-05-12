@@ -5,10 +5,13 @@ const PORT = 3001;
 
 const app = express();
 
+
 // GET route to get all of the terms
 app.get('/api/terms/', (req, res) => res.json(termData));
 
-// GET route that returns any specific term
+// GET route that returns any specific term 
+// http://localhost:3001/api/terms/JOHN. req.params = {term:JOHN}
+
 app.get('/api/terms/:term', (req, res) => {
   // Coerce the specific search term to lowercase
   console.log(req.params);
@@ -25,7 +28,7 @@ app.get('/api/terms/:term', (req, res) => {
   return res.json('No match found');
 });
 
-// Fallback route for when a user attempts to visit routes that don't exist
+// Fallback route for when a user attempts to visit routes that don't exist catch-all-route
 app.get('*', (req, res) =>
   res.send(
     `Make a GET request using Insomnia to <a href="http://localhost:${PORT}/api/terms">http://localhost:${PORT}/api/terms</a>`

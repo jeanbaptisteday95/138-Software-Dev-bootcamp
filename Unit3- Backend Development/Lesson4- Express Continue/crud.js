@@ -20,6 +20,7 @@ app.get('/books', (req, res) => {
   res.json(books);
 });
 
+
 // 2. Get a single book by ID
 app.get('/books/:id', (req, res) => {
   const book = books.find(b => b.id === parseInt(req.params.id));
@@ -43,7 +44,7 @@ app.post('/books', (req, res) => {
 app.put('/books/:id', (req, res) => {
   const book = books.find(b => b.id === parseInt(req.params.id));
   if (!book) return res.status(404).send('Book not found');
-
+  // existing = new value recived from body || exiting value
   book.title = req.body.title || book.title;
   book.author = req.body.author || book.author;
   book.year = req.body.year || book.year;
@@ -57,7 +58,7 @@ app.delete('/books/:id', (req, res) => {
   if (bookIndex === -1) return res.status(404).send('Book not found');
 
   const deletedBook = books.splice(bookIndex, 1);
-  res.json(deletedBook);
+  res.json({"message":"Book deleted"});
 });
 
 // Start server

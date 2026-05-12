@@ -9,7 +9,10 @@ const PORT = process.env.PORT;
 // Allows us to reference files with their relative path
 // Example: http://localhost:3001/images/gh.png
 
+// middleware
 // Add a static middleware for serving assets in the public folder
+// using a middleware app.use()
+
 app.use(express.static('public'));
 
 app.get('/images/google', (req, res) => {
@@ -20,3 +23,8 @@ app.get('/images/google', (req, res) => {
 app.listen(PORT, () =>
   console.log(`Serving static asset routes at http://localhost:${PORT}`)
 );
+
+
+
+// env file which hold our sensitive variables, these variables are cirtical to our application
+
