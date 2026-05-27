@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson9 JWT Auth Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lesson 9: JWT Auth Demo</h1>
+
+      <div id="message" class="message"></div>
+
+      <section class="card" id="registerSection">
+        <h2>Register</h2>
+        <form id="registerForm">
+          <input type="text" id="registerName" placeholder="Name" required />
+          <input type="email" id="registerEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Password"
+            required
+          />
+          <input type="number" id="registerAge" placeholder="Age" min="0" />
+          <button type="submit">Register</button>
+        </form>
+      </section>
+
+      <section class="card" id="loginSection">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="email" id="loginEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <section class="card" id="profileSection">
+        <h2>Profile</h2>
+        <div class="profile-actions">
+          <button id="profileButton">Fetch Profile</button>
+          <button id="logoutButton" class="secondary">Logout</button>
+        </div>
+        <pre id="profileOutput" class="output"></pre>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
