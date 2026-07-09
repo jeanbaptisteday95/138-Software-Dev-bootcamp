@@ -6,7 +6,19 @@ import app from "../src/app.js";
 // and executes each test case with it().
 // Chai provides readable assertions such as expect(...).to.have.status(200).
 // chai-http extends Chai so we can send HTTP requests to the Express app.
-const chai = use(chaiHttp);
+const chai = use(chaiHttp); // chai-http is a plugin for chai, we are configuring it here so that chai can use its own plugin ;
+
+/* describe('statement that describes the test suite', (cb) = {
+    it('statement for individual test' , (cb) => {
+      // body of the test 
+      });
+     it('statement of 2nd test', (cb) => {
+      }); 
+      it('statement of 3nd test', (cb) => {
+      }); 
+});
+
+*/
 
 describe("Express App Tests", () => {
   // A mock object is a dependency for real data during testing.
@@ -27,6 +39,7 @@ describe("Express App Tests", () => {
         .execute(app)
         .get("/users")
         .end((err, res) => {
+          // assertions
           expect(res).to.have.status(200);
           expect(res.body).to.be.an("array");
           expect(res.body.length).to.be.greaterThan(0);
@@ -163,7 +176,7 @@ describe("Express App Tests", () => {
         .get("/cause-error")
         .end((err, res) => {
           expect(res).to.have.status(500);
-          expect(res.body).to.have.property("error", "Server Error");
+          expect(res.body).to.have.property("error", "Server Errors"); 
           done();
         });
     });
